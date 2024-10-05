@@ -1,0 +1,33 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <a class="navbar-brand" routerLink="/product" style="font-family: 'Sitka Text', sans-serif;">Secure Chain</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+
+<div class="login-container" @fadeIn>
+  <div class="login-form">
+    <h2 class="text-center mb-3">Welcome back</h2>
+    <p class="text-center">Sign in to your account to continue</p>
+
+    <form (ngSubmit)="onLogin()">
+      <div class="form-group mb-4">
+        <label for="username">Username</label>
+        <input type="text" id="username" class="form-control" placeholder="Enter your username" [(ngModel)]="username" name="username" required>
+      </div>
+
+      <div class="form-group mb-4">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" placeholder="Enter your password" [(ngModel)]="password" name="password" required>
+      </div>
+
+      <div class="d-flex justify-content-center mb-2">
+        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      </div>
+
+    </form>
+  </div>
+</div>

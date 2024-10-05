@@ -1,0 +1,231 @@
+/* Navbar Styling */
+.navbar {
+  padding: 1rem 2.5rem;
+  width: 100svw;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add slight shadow for depth */
+}
+
+.things-needs {
+  position: fixed;
+  right: 2.5rem;
+}
+
+.navbar-brand {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #2a2e37;
+}
+
+.navbar-nav .logout-btn {
+  font-size: 16px;
+  color: #606770;
+  margin-right: 20px;
+}
+
+.navbar-nav .logout-btn:hover {
+  color: #2979ff;
+}
+
+.navbar-light .navbar-toggler {
+  border: none;
+}
+
+/* Logout Button Styling */
+.navbar-nav .logout-btn {
+  font-size: 16px;
+  color: #ffffff; /* White text for logout */
+  background-color: #e68891; /* Red background for logout */
+  padding: 0px 8px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar-nav .logout-btn:hover {
+  background-color: #c82333; /* Darker red on hover */
+  color: #ffffff;
+}
+
+/* Upload Button Styling */
+.btn-upload  {
+  background-color: #2979ff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Content Styling */
+.container {
+  max-width: 80svw;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: #2a2e37;
+}
+
+.btn-primary {
+  background-color: #2979ff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.file-list {
+
+  height: 70svh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.file-details {
+  display: flex;
+  align-items: center;
+}
+
+.file-direction i {
+  font-size: 24px;
+  color: #6c757d;
+}
+
+.file-info p {
+  margin: 0;
+  color: #606770;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.file-id {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: #333;
+}
+
+.file-status .badge {
+  width: 5.5rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.badge-success {
+  background-color: #28a745;
+}
+
+.badge-danger {
+  background-color: #dc3545;
+}
+
+.badge-warning {
+  background-color: #83cda8;
+}
+
+.btn-outline-primary {
+  color: #2979ff;
+  border: 1px solid #2979ff;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+.btn-outline-primary:hover {
+  background-color: #2979ff;
+  color: white;
+}
+
+
+/* Modal styling */
+.modal-content {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.modal-header .close {
+  color: white;
+  opacity: 1;
+}
+
+.modal-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.form-control {
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.modal-footer {
+  padding: 10px 20px;
+}
+
+/* Button Styling */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Close Button */
+.modal-header .close:hover {
+  color: #f8f9fa;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}

@@ -1,0 +1,115 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <a class="navbar-brand" routerLink="/product" style="font-family: 'Sitka Text', sans-serif;">Secure Chain</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto d-flex flex-column flex-lg-row align-items-center">
+      <li *ngIf="this.role === 'MANAGER'" class="nav-item text-center w-100 w-lg-auto">
+        <a class="nav-link nav-link-custom" routerLink="/manage">Manage</a>
+      </li>
+      <li class="nav-item text-center w-100 w-lg-auto">
+        <a class="nav-link nav-link-custom" routerLink="/product">Products</a>
+      </li>
+      <li class="nav-item logout-btn text-center w-100 w-lg-auto" >
+        <a class="nav-link nav-link-custom" href="#" (click)="onLogout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- Content Section -->
+<div class="container mt-3">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="mb-0">System users</h3>
+    <button class="btn btn-primary btn-upload" data-bs-toggle="modal" data-bs-target="#addUserModal">Add user</button>
+  </div>
+  <hr style="color: black;">
+
+  <div class="file-list">
+    <div *ngIf="users.length === 0" class="text-center">
+      <p>No users added yet</p>
+    </div>
+    <div class="file-item" *ngFor="let user of users">
+      <div class="file-details d-flex align-items-center gap-5 ">
+        <div class="file-info ml-3" style="width: 6svw;max-width: 6svw;min-width: 6svw;">
+          <p class="file-id">{{ user.username }}</p>
+        </div>
+        <div class="file-info ml-3" style="width: 8svw;max-width: 8svw;min-width: 8svw;">
+          <p class="file-date" style="border-radius: .7em; text-align: center; font-style: normal">{{ user.role }}</p>
+        </div>
+        <div class="file-info ml-3">
+          <p class="file-id">{{ user.email }}</p>
+        </div>
+      </div>
+      <div>
+        <div *ngIf="user.role !== 'MANAGER'" class="file-status d-flex align-items-center">
+          <span class="btn btn-danger badge mr-3" (click)="deleteUser(user.id)">delete</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 style="position: fixed; bottom: 1svh; left: 1svw; border: 1px solid grey; border-radius: .7em; padding: 5px 15px; box-shadow: 1px 2px 1px grey; background-color: #ffffff">{{ this.username }}</h3>
+
+<!-- Add User Modal -->
+<!-- Modal -->
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-between">
+        <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
+        <button #closeModal  type="button" class="btn btn-outline-info" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" class="form-control" formControlName="username">
+            <div *ngIf="hasError('username', 'required')" class="text-danger">
+              Username is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" formControlName="email">
+            <div *ngIf="hasError('email', 'required')" class="text-danger">
+              Email is required
+            </div>
+            <div *ngIf="hasError('email', 'email')" class="text-danger">
+              Invalid email format
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" formControlName="password">
+            <div *ngIf="hasError('password', 'required')" class="text-danger">
+              Password is required
+            </div>
+            <div *ngIf="hasError('password', 'minlength')" class="text-danger">
+              Password must be at least 6 characters long
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="role">Role</label>
+            <select id="role" class="form-control" formControlName="role">
+              <option value="USER">USER</option>
+              <option value="MANAGER">MANAGER</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Add User</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

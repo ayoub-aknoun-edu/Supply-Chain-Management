@@ -1,0 +1,8 @@
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+/* Global Styles */
+body {
+  background-color: #F8FAFC!important; /* Matches light background color */
+  font-family: 'Inter', sans-serif!important; /* Use Inter font to match the design */
+  overflow: hidden;
+}
